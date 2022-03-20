@@ -1,0 +1,61 @@
+{extends file="../templates/main.html"}
+
+{block name=footer}przykładowa treść stopki wpisana do szablonu głównego z szablonu kalkulatora{/block}
+
+{block name=content}
+
+<h3>Kalkulator rat</h2>
+
+
+<form class="https://unpkg.com/purecss@2.0.6/build/pure-min.css" action="{$app_url}/app/calc.php" method="post">
+	<fieldset>
+		<label for="amount">Kwota kredytu: </label>
+		<input id="amount" type="text" placeholder = "Wpisz kwotę" name="amount" value="{$form['amount']}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+		<label for="interest">Oprocentowanie: </label>
+		<input id="interest" type="text" placeholder = "Wpisz oprocentowanie" name="interest" value="{$form['interest']}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+		<label id="years">Ile lat: </label>
+		<input id="years" type="text" placeholder = "Wpisz ilość lat" name="years" value="{$form['years']}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+	</fieldset>
+	<button type="submit" class="https://unpkg.com/purecss@2.0.6/build/pure-min.css" style="background-color: Black; color: Red" />Oblicz</button>
+</form>
+
+<div class="messages">
+
+{* wyświeltenie listy błędów, jeśli istnieją *}
+{if isset($messages)}
+	{if count($messages) > 0} 
+		<h4>Wystąpiły błędy: </h4>
+		<ol class="err">
+		{foreach  $messages as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{* wyświeltenie listy informacji, jeśli istnieją *}
+{if isset($infos)}
+	{if count($infos) > 0} 
+		<h4>Informacje: </h4>
+		<ol class="inf">
+		{foreach  $infos as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{if isset($result)}
+	<h4>Wynik</h4>
+	<p class="res" style="background-color: Black; color: Red">
+	{$result}
+	</p>
+{/if}
+
+</div>
+
+{/block}
