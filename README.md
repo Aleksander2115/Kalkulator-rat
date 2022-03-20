@@ -1,3 +1,3 @@
-Języki programowania dynamicznych stron inernetowych
+Języki programowania dynamicznych stron internetowych
 
 Programowanie bazodanowych aplikacji webowych
