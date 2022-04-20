@@ -1,0 +1,28 @@
+{extends file="main.html"}
+
+{block name=content}
+
+<div class="pure-menu pure-menu-horizontal bottom-margin">
+<a href="{$conf->action_root}resultList" class="pure-menu-heading pure-menu-link">Lista</a>
+	<a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">wyloguj</a>
+</div>
+
+<form class="https://unpkg.com/purecss@2.0.6/build/pure-min.css" action="{$conf->action_url}calcCompute" method="post">
+	<fieldset>
+		<label for="amount">Kwota kredytu: </label>
+		<input id="amount" type="text" placeholder = "Wpisz kwotę" name="amount" value="{$form->amount}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+		<label for="interest">Oprocentowanie: </label>
+		<input id="interest" type="text" placeholder = "Wpisz oprocentowanie" name="interest" value="{$form->interest}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+		<label id="years">Ile lat: </label>
+		<input id="years" type="text" placeholder = "Wpisz ilość lat" name="years" value="{$form->years}" class = "pure-input-rounded" style="background-color: Black; color: Red" /><br />
+	</fieldset>
+	<button type="submit" class="https://unpkg.com/purecss@2.0.6/build/pure-min.css" style="background-color: Black; color: Red" />Oblicz</button>
+</form>
+
+{if isset($res->result)}
+<div class="messages info">
+	Wynik: {$res->result}
+</div>
+{/if}
+
+{/block}
